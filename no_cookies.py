@@ -11,10 +11,11 @@ async def browse(instruction: str):
         task=instruction,
         llm=ChatOpenAI(model="gpt-4o"),
     )
-    await agent.run()
+    result = await agent.run()
+    return result
 
 def run_browse(instruction):
-    asyncio.run(browse(instruction))
+    return asyncio.run(browse(instruction))
 
 course_list = ["CS173", "CS128"]
 platforms = ["https://courses.grainger.illinois.edu/cs173/sp2025/ALL-lectures/", "https://cs128.org/"]
@@ -31,5 +32,3 @@ The current date is {current_date}
 The login credentials are as follows: {login_credentials}
 Your job is to visit {website_name} at UIUC and tell me what the most important thing is to accomplish for my grade.
 """
-
-run_browse(prompt)
