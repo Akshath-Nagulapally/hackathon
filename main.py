@@ -1,6 +1,9 @@
 from browser_use import Agent, Browser, BrowserConfig
 from langchain_openai import ChatOpenAI
 import asyncio
+from dotenv import load_dotenv
+load_dotenv()
+
 # Configure the browser to connect to your Chrome instance
 browser = Browser(
     config=BrowserConfig(
